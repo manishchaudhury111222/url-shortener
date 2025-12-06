@@ -5,11 +5,11 @@ A robust, multi-tenant URL shortening service built with Laravel 11 and SQLite. 
 
 
 ## 🤖 Acceptable AI Usage Policy & Declaration
-# Tool Used: Google Gemini
+Tool Used: Google Gemini
 
 In accordance with the assignment's Acceptable AI Usage Policy, I declare that my overall workflow, architectural logic, and implementation reasoning are original. AI tools were strictly utilized for debugging purposes.
 
-# Specific Usages:
+Specific Usages:
 
 - Used Google Gemini to debug and resolve the Laravel 11 specific error Class "App\Providers\AuthServiceProvider" not found.
 
@@ -46,99 +46,99 @@ Follow these steps to set up the project locally for testing.
 
 1. Clone the Repository
 
-git clone [https://github.com/YOUR-USERNAME/sembark-url-shortener.git](https://github.com/YOUR-USERNAME/sembark-url-shortener.git)
+```bash
+git clone [https://github.com/YOUR-USERNAME/url-shortener.git](https://github.com/YOUR-USERNAME/url-shortener.git)
 cd sembark-url-shortener
-
+```
 
 2. Install Dependencies
 
+```bash
 composer install
-
+```
 
 3. Environment Configuration
 
 Copy the example environment file.
 
+```bash
 copy .env.example .env
-
+```
 
 Open .env and configure it for SQLite (ensure MySQL settings are removed or commented out):
 
+```bash
 DB_CONNECTION=sqlite
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
 # DB_DATABASE=laravel
 # DB_USERNAME=root
 # DB_PASSWORD=
-
+```
 
 4. Create Database File
 
 Create the SQLite database file in the database directory.
 
-Windows (CMD): type nul > database/database.sqlite
+- Windows (CMD): type nul > database/database.sqlite
 
-Mac/Linux: touch database/database.sqlite
+- Mac/Linux: touch database/database.sqlite
 
 5. Application Key & Migrations
 
 Generate the app key and run the migrations with seeders. This creates the database structure and the default Super Admin account.
 
+```bash
 php artisan key:generate
 php artisan migrate:fresh --seed
-
+```
 
 6. Run the Application
 
 Start the local development server.
 
+```bash
 php artisan serve
-
+```
 
 Access the application at: https://www.google.com/search?q=http://127.0.0.1:8000
 
-🔑 Default Credentials
+## 🔑 Default Credentials
 
 The database seeder creates the initial Super Admin account for you.
 
-Role
+| Role          | Email               | Password |
+| :------------ | :------------------ | :------- |
+| **Super Admin** | `super@example.com` | `password` |
+| **Admin** | `admin@example.com` | `password` |
+| **Member** | `user@example.com`  | `password` |
 
-Email
-
-Password
-
-Super Admin
-
-super@example.com
-
-password
-
-📖 Workflows
+## 📖 Workflows
 
 1. Super Admin Workflow
 
-Log in as super@example.com.
+- Log in as super@example.com.
 
-Use the "Invite New Client" form to create a new Company and its first Admin (e.g., Company: "Google", Admin Email: admin@google.com).
+- Use the "Invite New Client" form to create a new Company and its first Admin (e.g., Company: "Google", Admin Email: admin@google.com).
 
-Note: Super Admins strictly cannot generate short URLs.
+- Note: Super Admins strictly cannot generate short URLs.
 
 2. Company Admin Workflow
 
-Log in with the email created in step 1.
+- Log in with the email created in step 1.
 
-Use "Generate Short URL" to create links.
+- Use "Generate Short URL" to create links.
 
-Use "Invite New Team Member" to add staff to your company.
+- Use "Invite New Team Member" to add staff to your company.
 
 3. Member Workflow
 
-Log in with the invited member email.
+- Log in with the invited member email.
 
-Generate Short URLs.
+- Generate Short URLs.
 
-View only the history of URLs you created.
+- View only the history of URLs you created.
 
-Built for Sembark Tech Backend Developer Assignment.
+## Built for Sembark Tech Backend Developer Assignment.
 
 
