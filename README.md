@@ -141,6 +141,15 @@ __3. Member Workflow__
 
 - View only the history of URLs you created.
 
+## Screenshots
+<img src="docs/LoginPage.png" alt="LoginPage" width="600">
+
+![SuperAdminDashboard Screenshot](docs/SuperAdminDashboard.png)
+![AdminDashboard Screenshot](docs/AdminDashboard.png)
+![AdminDashboard1 Screenshot](docs/AdminDashboard1.png)
+![AdminDashboard2 Screenshot](docs/AdminDashboard2.png)
+![MemberDashboard Screenshot](docs/MemberDashboard.png)
+
 
 ## 🤖 Acceptable AI Usage Policy & Declaration
 **Tool Used:** Google Gemini
