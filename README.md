@@ -1,19 +1,7 @@
-
 ## URL Shortener
 
 A robust, multi-tenant URL shortening service built with Laravel 11 and SQLite. This application features Role-Based Access Control (RBAC), organization management, and secure URL redirection.
 
-
-## 🤖 Acceptable AI Usage Policy & Declaration
-Tool Used: Google Gemini
-
-In accordance with the assignment's Acceptable AI Usage Policy, I declare that my overall workflow, architectural logic, and implementation reasoning are original. AI tools were strictly utilized for debugging purposes.
-
-Specific Usages:
-
-- Used Google Gemini to debug and resolve the Laravel 11 specific error Class "App\Providers\AuthServiceProvider" not found.
-
-- Used Google Gemini to troubleshoot the SQLite no such table: sessions migration error during the setup process.
 
 ## Core Functionality
 
@@ -23,9 +11,11 @@ Specific Usages:
 
 - **Hit Counter:** Tracks the number of clicks for every shortened link.
 
+
 ## Architecture & Security
 
 - **Multi-Tenancy:** Users and URLs are strictly scoped to specific Companies (Clients).
+  
 
 ## RBAC (Role-Based Access Control):
 
@@ -34,6 +24,7 @@ Specific Usages:
 - **Company Admin:** Manages their specific company. Can invite members and create URLs.
 
 - **Team Member:** Can only create and view their own URLs.
+
 
 ## ⚙️ Installation & Setup
 Follow these steps to set up the project locally for testing.
@@ -44,26 +35,30 @@ Follow these steps to set up the project locally for testing.
 - Composer
 - Git
 
-1. Clone the Repository
+
+**1. Clone the Repository**
 
 ```bash
 git clone [https://github.com/YOUR-USERNAME/url-shortener.git](https://github.com/YOUR-USERNAME/url-shortener.git)
-cd sembark-url-shortener
+cd url-shortener
 ```
 
-2. Install Dependencies
+
+**2. Install Dependencies**
 
 ```bash
 composer install
 ```
 
-3. Environment Configuration
+
+**3. Environment Configuration**
 
 Copy the example environment file.
 
 ```bash
 copy .env.example .env
 ```
+
 
 Open .env and configure it for SQLite (ensure MySQL settings are removed or commented out):
 
@@ -76,7 +71,8 @@ DB_CONNECTION=sqlite
 # DB_PASSWORD=
 ```
 
-4. Create Database File
+
+**4. Create Database File**
 
 Create the SQLite database file in the database directory.
 
@@ -84,7 +80,8 @@ Create the SQLite database file in the database directory.
 
 - Mac/Linux: touch database/database.sqlite
 
-5. Application Key & Migrations
+
+**5. Application Key & Migrations**
 
 Generate the app key and run the migrations with seeders. This creates the database structure and the default Super Admin account.
 
@@ -93,13 +90,15 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 ```
 
-6. Run the Application
+
+**6. Run the Application**
 
 Start the local development server.
 
 ```bash
 php artisan serve
 ```
+
 
 Access the application at: https://www.google.com/search?q=http://127.0.0.1:8000
 
@@ -113,9 +112,10 @@ The database seeder creates the initial Super Admin account for you.
 | **Admin** | `admin@example.com` | `password` |
 | **Member** | `user@example.com`  | `password` |
 
+
 ## 📖 Workflows
 
-1. Super Admin Workflow
+__1. Super Admin Workflow__
 
 - Log in as super@example.com.
 
@@ -123,7 +123,8 @@ The database seeder creates the initial Super Admin account for you.
 
 - Note: Super Admins strictly cannot generate short URLs.
 
-2. Company Admin Workflow
+
+__2. Company Admin Workflow__
 
 - Log in with the email created in step 1.
 
@@ -131,7 +132,8 @@ The database seeder creates the initial Super Admin account for you.
 
 - Use "Invite New Team Member" to add staff to your company.
 
-3. Member Workflow
+
+__3. Member Workflow__
 
 - Log in with the invited member email.
 
@@ -139,6 +141,19 @@ The database seeder creates the initial Super Admin account for you.
 
 - View only the history of URLs you created.
 
-## Built for Sembark Tech Backend Developer Assignment.
+
+## 🤖 Acceptable AI Usage Policy & Declaration
+**Tool Used:** Google Gemini
+
+In accordance with the assignment's Acceptable AI Usage Policy, I declare that my overall workflow, architectural logic, and implementation reasoning are original. AI tools were strictly utilized for debugging purposes.
+
+**Specific Usages:**
+
+- Used Google Gemini to debug and resolve the Laravel 11 specific error Class "App\Providers\AuthServiceProvider" not found.
+
+- Used Google Gemini to troubleshoot the SQLite no such table: sessions migration error during the setup process.
+
+
+__Built for Sembark Tech Backend Developer Assignment.__
 
 
