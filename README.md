@@ -1,59 +1,144 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## URL Shortener
 
-## About Laravel
+A robust, multi-tenant URL shortening service built with Laravel 11 and SQLite. This application features Role-Based Access Control (RBAC), organization management, and secure URL redirection.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🤖 Acceptable AI Usage Policy & Declaration
+# Tool Used: Google Gemini
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In accordance with the assignment's Acceptable AI Usage Policy, I declare that my overall workflow, architectural logic, and implementation reasoning are original. AI tools were strictly utilized for debugging purposes.
 
-## Learning Laravel
+# Specific Usages:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- Used Google Gemini to debug and resolve the Laravel 11 specific error Class "App\Providers\AuthServiceProvider" not found.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Used Google Gemini to troubleshoot the SQLite no such table: sessions migration error during the setup process.
 
-## Laravel Sponsors
+## Core Functionality
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **URL Shortening:** Generates unique 6-character short codes for long URLs.
 
-### Premium Partners
+- **Redirection:** Instant redirection to original destinations with hit tracking.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Hit Counter:** Tracks the number of clicks for every shortened link.
 
-## Contributing
+## Architecture & Security
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Multi-Tenancy:** Users and URLs are strictly scoped to specific Companies (Clients).
 
-## Code of Conduct
+## RBAC (Role-Based Access Control):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Super Admin:** System-wide oversight. Can invite Clients but cannot create URLs.
 
-## Security Vulnerabilities
+- **Company Admin:** Manages their specific company. Can invite members and create URLs.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Team Member:** Can only create and view their own URLs.
 
-## License
+## ⚙️ Installation & Setup
+Follow these steps to set up the project locally for testing.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Prerequisites**
+
+- PHP >= 8.2
+- Composer
+- Git
+
+1. Clone the Repository
+
+git clone [https://github.com/YOUR-USERNAME/sembark-url-shortener.git](https://github.com/YOUR-USERNAME/sembark-url-shortener.git)
+cd sembark-url-shortener
+
+
+2. Install Dependencies
+
+composer install
+
+
+3. Environment Configuration
+
+Copy the example environment file.
+
+copy .env.example .env
+
+
+Open .env and configure it for SQLite (ensure MySQL settings are removed or commented out):
+
+DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+
+4. Create Database File
+
+Create the SQLite database file in the database directory.
+
+Windows (CMD): type nul > database/database.sqlite
+
+Mac/Linux: touch database/database.sqlite
+
+5. Application Key & Migrations
+
+Generate the app key and run the migrations with seeders. This creates the database structure and the default Super Admin account.
+
+php artisan key:generate
+php artisan migrate:fresh --seed
+
+
+6. Run the Application
+
+Start the local development server.
+
+php artisan serve
+
+
+Access the application at: https://www.google.com/search?q=http://127.0.0.1:8000
+
+🔑 Default Credentials
+
+The database seeder creates the initial Super Admin account for you.
+
+Role
+
+Email
+
+Password
+
+Super Admin
+
+super@example.com
+
+password
+
+📖 Workflows
+
+1. Super Admin Workflow
+
+Log in as super@example.com.
+
+Use the "Invite New Client" form to create a new Company and its first Admin (e.g., Company: "Google", Admin Email: admin@google.com).
+
+Note: Super Admins strictly cannot generate short URLs.
+
+2. Company Admin Workflow
+
+Log in with the email created in step 1.
+
+Use "Generate Short URL" to create links.
+
+Use "Invite New Team Member" to add staff to your company.
+
+3. Member Workflow
+
+Log in with the invited member email.
+
+Generate Short URLs.
+
+View only the history of URLs you created.
+
+Built for Sembark Tech Backend Developer Assignment.
+
+
