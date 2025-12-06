@@ -142,12 +142,34 @@ __3. Member Workflow__
 - View only the history of URLs you created.
 
 ## Screenshots
-<img src="docs/LoginPage.png" alt="LoginPage" width="600">
+
+**Login Page**
+
+![LoginPage Screenshot](docs/LoginPage.png)
+
+
+**Super Admin Dashboard**
 
 ![SuperAdminDashboard Screenshot](docs/SuperAdminDashboard.png)
+
+
+**Admin Dashboard**
+
 ![AdminDashboard Screenshot](docs/AdminDashboard.png)
+
+
+**Admin Dashboard 1**
+
 ![AdminDashboard1 Screenshot](docs/AdminDashboard1.png)
+
+
+**Admin Dashboard 2**
+
 ![AdminDashboard2 Screenshot](docs/AdminDashboard2.png)
+
+
+**Member Dashboard**
+
 ![MemberDashboard Screenshot](docs/MemberDashboard.png)
 
 
@@ -161,6 +183,7 @@ In accordance with the assignment's Acceptable AI Usage Policy, I declare that m
 - Used Google Gemini to debug and resolve the Laravel 11 specific error Class "App\Providers\AuthServiceProvider" not found.
 
 - Used Google Gemini to troubleshoot the SQLite no such table: sessions migration error during the setup process.
+
 
 
 __Built for Sembark Tech Backend Developer Assignment.__
