@@ -100,7 +100,7 @@ php artisan serve
 ```
 
 
-Access the application at: https://www.google.com/search?q=http://127.0.0.1:8000
+Access the application at:  Server running on [http://127.0.0.1:8000]
 
 ## 🔑 Default Credentials
 
